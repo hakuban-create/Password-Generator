@@ -1,1 +1,3 @@
 # Password-Generator
+
+This program generates secure password for the user based on their ...

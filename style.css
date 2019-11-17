@@ -1,0 +1,41 @@
+body{
+    margin-top: 40px;
+    color: black;
+    text-align: center;
+}
+
+.container{
+    margin-top:40px;
+    font-size: 30;
+    height: 600px;
+}
+#top-row{
+    line-height: 4;
+    height: 100px;
+    border-bottom: 2px solid lightgray;
+    margin: 0px 50px;
+}
+
+#mid-row{
+    line-height: 4;
+    height: 300px;
+    border-bottom: 2px solid lightgray;
+    margin: 0px 50px;
+}
+#bottom-row{
+    height: 100px;
+    margin-left: 10%;
+}
+
+button{
+    height: 50px;
+    margin: 30px 100px 0 100px;
+}
+
+.inner-div{
+    margin: 50px 20px 30px 50px;
+    height: 200px;
+    width:90%;
+    border: 2px dotted lightgray;
+}
+
