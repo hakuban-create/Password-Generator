@@ -86,7 +86,7 @@ function generatePassword(){
 
         if(selectedObjects.length==0){alert("Error: At least 1 input type must be selected."); return;}
 
-        alert("Password length: "+passwordLength+"\nContains: "+selectedStr);
+        alert("Your secure password length will be: "+passwordLength+"\nContains: "+selectedStr);
     
 
         /* forming the final password */
@@ -99,7 +99,10 @@ function generatePassword(){
     }
 
     function copyToClipBoard(){
-        alert("copied");
+        var text=document.getElementById('log');
+        text.select();
+        document.execCommand("copy");
+        alert("Copied");
     }
 
     var btn=document.getElementById("generate-password");

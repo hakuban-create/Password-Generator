@@ -34,6 +34,7 @@ button{
 
 .card{
     color: #b72626;
+    text-align: center;
     line-height: 1;
     margin: 50px 20px 30px 50px;
     height: 200px;
