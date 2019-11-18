@@ -32,10 +32,15 @@ button{
     margin: 30px 100px 0 100px;
 }
 
-.inner-div{
+.card{
+    color: #b72626;
+    line-height: 1;
     margin: 50px 20px 30px 50px;
     height: 200px;
     width:90%;
+    font-size: 30;
+    padding: 50px 20px 0px 20px ;
     border: 2px dotted lightgray;
 }
+
 

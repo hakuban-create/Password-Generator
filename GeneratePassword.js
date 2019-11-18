@@ -15,8 +15,8 @@ var specialCharStr="!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var getRandomUpperCase={
     unicodeStart: 65,
     unicodeEnd: 90,
-    name:"UpperCase",
-    includeInPassword:false,
+    name:"UpperCases",
+    includeInPassword: false,
 
     getChar : function() {
         var ranNumber=getRandomNumber(this.unicodeStart,this.unicodeEnd);
@@ -27,8 +27,8 @@ var getRandomUpperCase={
 var getRandomLowerCase={
     unicodeStart: 97,
     unicodeEnd: 122,
-    name:"LowerCase",
-    includeInPassword:false,
+    name:"LowerCases",
+    includeInPassword: false,
 
     getChar : function() {
         var ranNumber=getRandomNumber(this.unicodeStart,this.unicodeEnd);
@@ -39,8 +39,8 @@ var getRandomLowerCase={
 var getRandomDigit={
     unicodeStart: 48,
     unicodeEnd: 57,
-    name:"Number",
-    includeInPassword:false,
+    name:"Numbers",
+    includeInPassword: false,
 
     getChar : function() {
         var ranNumber=getRandomNumber(this.unicodeStart,this.unicodeEnd);
@@ -50,7 +50,7 @@ var getRandomDigit={
 
 var getRandomSpecialChar={
     name:"SpecialCharacters",
-    includeInPassword:false,
+    includeInPassword: false,
     getChar : function() {
         var ranNumber=getRandomNumber(0,specialCharStr.length-1);
         return specialCharStr.charAt(ranNumber);
@@ -70,23 +70,23 @@ function generatePassword(){
         var passwordLength=prompt("What is the LENGTH of the password?");
         if(passwordLength==0){alert("Error: Invalid entry. Password length must be greater than 0."); return;}
 
-        getRandomUpperCase.includeInPassword=prompt("Do you want to include UPPER CASE??")
-        getRandomLowerCase.includeInPassword=prompt("Do you want to include LOWER CASE");
-        getRandomDigit.includeInPassword=prompt("Do you want to include NUMBER?");
-        getRandomSpecialChar.includeInPassword=prompt("Do you want to include SPECIAL CHARACTERS?");
+        getRandomUpperCase.includeInPassword=confirm("Do you want to include UPPER CASE?")
+        getRandomLowerCase.includeInPassword=confirm("Do you want to include LOWER CASE?");
+        getRandomDigit.includeInPassword=confirm("Do you want to include NUMBER?");
+        getRandomSpecialChar.includeInPassword=confirm("Do you want to include SPECIAL CHARACTERS?");
 
         /* adding the user choices into the selectedObject array */
         var selectedStr="";
         for(var i=0; i<AllObjectArray.length; i++){
-            if(AllObjectArray[i].includeInPassword=="true"){
+            if(AllObjectArray[i].includeInPassword==true){
                selectedObjects.push(AllObjectArray[i]);
-               selectedStr+=AllObjectArray[i].name+" | ";
+               selectedStr+=AllObjectArray[i].name+", ";
             }
         }
 
         if(selectedObjects.length==0){alert("Error: At least 1 input type must be selected."); return;}
 
-        alert("Password length: "+passwordLength+" \nContains: "+selectedStr);
+        alert("Password length: "+passwordLength+"\nContains: "+selectedStr);
     
 
         /* forming the final password */
@@ -94,11 +94,24 @@ function generatePassword(){
             finalPassword+=selectedObjects[getRandomNumber(0,selectedObjects.length-1)].getChar();
         }
 
-        alert("Your password is: "+finalPassword);
+       document.getElementById('log').innerText =  finalPassword;
 
+    }
+
+    function copyToClipBoard(){
+        alert("copied");
     }
 
     var btn=document.getElementById("generate-password");
     btn.addEventListener("click",generatePassword);
 
+    var btn=document.getElementById("Copy-password");
+    btn.addEventListener("click",copyToClipBoard);
 
+
+
+/*
+TODO
+-inhance the user input UI
+-enable "copy to clickboard"
+*/
